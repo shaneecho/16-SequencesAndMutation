@@ -17,10 +17,10 @@ Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
 def main():
     """ Calls the   TEST   functions in this module. """
     # run_test_shortest_string()
-    run_test_index_of_largest_number()
+    # run_test_index_of_largest_number()
     # run_test_number_of_stutters()
     # run_test_is_palindrome()
-    # run_test_count_same()
+    run_test_count_same()
 
 
 # ----------------------------------------------------------------------
@@ -243,11 +243,15 @@ def number_of_stutters(s):
        :type s: str
     """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
     count=0
-    for k in range
+    for k in range (1,len(s)):
+        if s[k] == s[k-1]:
+            count = count + 1
+    return count
+
 
 def run_test_is_palindrome():
     """ Tests the   is_palindrome   function. """
@@ -317,7 +321,7 @@ def is_palindrome(s):
       :type s: str
     """
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     ####################################################################
@@ -326,7 +330,13 @@ def is_palindrome(s):
     #   above are particularly good examples to work by hand.
     ####################################################################
     # ------------------------------------------------------------------
-
+    string = ''
+    for k in range(-1,-len(s)-1,-1):
+        string = string + s[k]
+    if string == s:
+        return True
+    else:
+        return False
 
 # ----------------------------------------------------------------------
 # Some problems loop (iterate) through two or more sequences
@@ -384,11 +394,14 @@ def count_same(sequence1, sequence2):
       type: sequence2: tuple or list or string
     """
     # ------------------------------------------------------------------
-    # TODO: 6. Implement and test this function.
+    # DONE: 6. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
-
-
+    count = 0
+    for k in range(len(sequence1)):
+        if sequence1[k] == sequence2[k]:
+            count  = count + 1
+    return count
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # ----------------------------------------------------------------------
